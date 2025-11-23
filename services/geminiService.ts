@@ -1,12 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import { ImageAsset, AspectRatio } from "../types";
 
-const apiKey = process.env.API_KEY;
-if (!apiKey) {
-  console.error("API_KEY is not set in the environment variables.");
-}
-
-const ai = new GoogleGenAI({ apiKey: apiKey || '' });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 /**
  * Generates or edits an image using Gemini 2.5 Flash Image.

@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import { ImageAsset } from "../types";
+import { ImageAsset, AspectRatio } from "../types";
 
 const apiKey = process.env.API_KEY;
 if (!apiKey) {
@@ -9,15 +9,17 @@ if (!apiKey) {
 const ai = new GoogleGenAI({ apiKey: apiKey || '' });
 
 /**
- * Generates or edits an image using Gemini 2.5 Flash Image (Nano banana).
+ * Generates or edits an image using Gemini 2.5 Flash Image.
  * 
  * @param prompt The text description of the image or edit.
  * @param inputImage Optional base64 image data for editing.
+ * @param aspectRatio Optional aspect ratio for the output image.
  * @returns The generated image as a data URL string.
  */
 export const generateOrEditImage = async (
   prompt: string,
-  inputImage?: ImageAsset
+  inputImage?: ImageAsset,
+  aspectRatio: AspectRatio = '1:1'
 ): Promise<string> => {
   try {
     const parts: any[] = [];
@@ -37,13 +39,18 @@ export const generateOrEditImage = async (
       text: prompt,
     });
 
-    // Use the specific model 'gemini-2.5-flash-image' as requested
+    // Use the specific model 'gemini-2.5-flash-image'
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
       contents: {
         parts: parts,
       },
-      // Config can be added here if needed, e.g. aspectRatio
+      config: {
+        // Image generation config
+        imageConfig: {
+          aspectRatio: aspectRatio
+        }
+      }
     });
 
     // Parse response to find the image part

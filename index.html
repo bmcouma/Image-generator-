@@ -3,29 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teklini Gen Studio</title>
+    <title>Teklini Vision Studio | AI-Powered Digital Solutions</title>
+    <meta name="description" content="Official AI design suite for Teklini Technologies. Bridging Software Engineering, IT Support, and Digital Strategy." />
+    <meta name="author" content="Bravin Ouma - Teklini Technologies" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              teklini: {
+                50: '#f0f4f8',
+                100: '#d9e2ec',
+                200: '#bcccdc',
+                300: '#9fb3c8',
+                400: '#829ab1',
+                500: '#627d98', // Silverish Blue
+                600: '#486581',
+                700: '#334e68',
+                800: '#102a43', // Deep Navy
+                900: '#06152a', // Darkest Navy
+                950: '#020914', // Almost Black
+              },
+              brand: {
+                blue: '#0F265C', // The dark blue from the logo
+                silver: '#A0AAB5', // The silver from the logo
+                accent: '#2563EB', // Bright blue for actions
+              }
+            }
+          }
+        }
+      }
+    </script>
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #0f172a; /* Slate 900 */
-        color: #f8fafc; /* Slate 50 */
+        background-color: #020914; /* Teklini 950 */
+        color: #f0f4f8; /* Teklini 50 */
       }
       /* Custom scrollbar for webkit */
       ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e293b;
+        background: #06152a;
       }
       ::-webkit-scrollbar-thumb {
-        background: #475569;
-        border-radius: 4px;
+        background: #334e68;
+        border-radius: 3px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #64748b;
+        background: #486581;
+      }
+      .glass-panel {
+        background: rgba(16, 42, 67, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
       }
     </style>
   <script type="importmap">
